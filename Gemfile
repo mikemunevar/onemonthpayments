@@ -1,10 +1,22 @@
 source 'https://rubygems.org'
 
+# Require a specific version of Ruby MDM
+#ruby '2.1.1'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Use sqlite3 as the database for Development and Test
+# Define a development and test enviroment #MDM
+gem 'sqlite3', group: [:development, :test]
+
+# Heroku needs to use Postgres... so specify to use that in production #MDM
+gem 'pg', group: :production
+
+# Add 12 factor for Heroku #MDM
+gem 'rails_12factor', group: :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
