@@ -1,4 +1,4 @@
-#pages_controller.rb
+#pages_controller.rb #MDM
 
 class PagesController < ApplicationController
    def home
