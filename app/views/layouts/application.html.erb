@@ -1,4 +1,4 @@
-<!-- Head has been updated with Head of Chris' design #MDM-->
+<!-- <Head> has been updated with Head of Chris' design #MDM-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +14,21 @@
 </head>
 
 
-
+<!-- Body content has been moved from home.html.erb to here #MDM-->>
 <body>
 
-<%= yield %>
+  <div id="content" class="container">
+    <header id="content-header">
+        <div id="price-container">
+          <span class="glyphicon glyphicon-tag"></span><span class="price">$4.99</span>
+        </div>
+          <!-- Updated image links with asset_path. Do a command-f for "img " #MDM -->
+          <%= image_tag('header-image.jpg', id: 'content-header-img', alt: 'Learn Growth Hacking') %>
+    </header>
+    
+  <%= yield %>
 
+  </div>
+  
 </body>
 </html>
