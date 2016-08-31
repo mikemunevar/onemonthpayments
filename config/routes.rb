@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  #Create the route to your newly created homepage #MDM
   root 'pages#home' #MDM
+  
+  # Support Stripe routes #MDM
+  resources :charges
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
