@@ -23,6 +23,9 @@ gem 'bootstrap-sass'
 # Add Stripe for eCommerce payment functionality #MDM
 gem 'stripe', :git =>'https://github.com/stripe/stripe-ruby'
 
+# Add Figaro gem for securely managing credentials
+gem 'figaro'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
