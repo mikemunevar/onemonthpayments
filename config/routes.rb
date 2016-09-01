@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # Support Stripe routes #MDM
   resources :charges
   
+  # Route for showing purchases #MDM
+  resources :purchases, only: [:show]
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
