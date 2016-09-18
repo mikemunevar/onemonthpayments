@@ -12,3 +12,4 @@ class CreatePurchases < ActiveRecord::Migration
     end
   end
 end
+@@

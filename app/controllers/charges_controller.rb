@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
         :description => 'Growth Hacking Crash Course',
         :currency    => 'usd'
       )
-    
+
     # Create a new purchase #MDM
     purchase = Purchase.create(
       email: params[:stripeEmail], 
@@ -25,10 +25,12 @@ class ChargesController < ApplicationController
       amount: params[:amount],
       description: charge.description,
       currency: charge.currency,
-      customer_id: customer.id,
-      product_id: 1
+      # Make sure that each purchase ID gets a random hex
+      customer_id: customer.id, 
+      product_id: 1, 
+      uuid: SecureRandom.uuid
       )
-      
+
     redirect_to purchase
     
     rescue Stripe::CardError => e
