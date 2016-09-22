@@ -6,11 +6,11 @@ Rails.application.initialize!
 
 # Enter the settings for using sendgrid in Heroku #MDM
 ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.sendgrid.net',
-    :port => '587',
-    :authentication => :plain,
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRIC_PASSWORD'],
-    :domain => 'heroku.com',
+    :address            => 'smtp.sendgrid.net',
+    :port               => '587',
+    :authentication     => :plain,
+    :user_name          => ENV['SENDGRID_USERNAME'],
+    :password           => ENV['SENDGRID_PASSWORD'],
+    :domain             => 'heroku.com',
     :enable_startstls_auto => true
 }
