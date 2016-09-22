@@ -26,8 +26,16 @@ gem 'stripe', :git =>'https://github.com/stripe/stripe-ruby'
 # Add Figaro gem for securely managing credentials
 gem 'figaro'
 
-# Add letter opener for handling emails in development
+# Add letter opener for handling emails in development #MDM
 gem 'letter_opener', group: :development
+
+
+# Add activeadmin to generate an admin interface #MDM
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+# Add devise to suport login for activeAdmin #MDM
+gem 'devise'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
