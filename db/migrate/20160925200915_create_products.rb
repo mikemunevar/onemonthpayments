@@ -1,7 +1,11 @@
 class CreateProducts < ActiveRecord::Migration
   def change
+    # drop_table :products
+
+    # Set up your data #MDM
+    # The timestamp was automatically entered #MDM
+
     create_table :products do |t|
-      # Set up your data #MDM
       t.string  :title
       t.string  :subtitle
       t.string  :author
@@ -9,7 +13,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string  :sku
       t.decimal :price
       
-      # The timestamp was automatically entered #MDM
       t.timestamps null: false
     end
   end

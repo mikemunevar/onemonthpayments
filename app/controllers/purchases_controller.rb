@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
        # @purchase = Purchase.find(params[:id])
        # the purchases controller now needs to find by uuid #MDM 
        @purchase = Purchase.find_by_uuid(params[:id])
-       
+       @product = Product.find(@purchase.product_id)
    end
    
 end

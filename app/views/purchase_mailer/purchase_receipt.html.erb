@@ -3,7 +3,8 @@
 
 
 <!--
+purchase_receipt.html.erb
 <a href="https://s3.amazonaws.com/one-month-stripe-payments-0522/Alisons+Cupcakes.jpg"><button type="button" class="btn btn-success btn-xs">DOWNLOAD</button></a>
 -->
 
-<%= link_to "Download your ebook", "https://s3.amazonaws.com/one-month-stripe-payments-0522/Alisons+Cupcakes.jpg" %>
+<%= link_to "Download your ebook", @product.download_url %>

@@ -1,4 +1,4 @@
-# User generated charge_controller.rb #MDM
+# User generated charges_controller.rb #MDM
 # Add in the code from the Stripe Rails tutorial #MDM
 
 
@@ -20,15 +20,19 @@ class ChargesController < ApplicationController
 
     # Create a new purchase #MDM
     purchase = Purchase.create(
-      email: params[:stripeEmail], 
-      card: params[:stripeToken], 
-      amount: params[:amount],
-      description: charge.description,
-      currency: charge.currency,
+      email:        params[:stripeEmail], 
+      card:         params[:stripeToken], 
+      
+      # Use the following variation to make sure that a customer does not hack the amount #MDM
+      #amount:       params[:amount],
+      amount:       product.price_in_cents,
+      description:  charge.description,
+      currency:     charge.currency,
+      
       # Make sure that each purchase ID gets a random hex
-      customer_id: customer.id, 
-      product_id: 1, 
-      uuid: SecureRandom.uuid
+      customer_id:  customer.id, 
+      product_id:   product.id, 
+      uuid:         SecureRandom.uuid
       )
 
     redirect_to purchase
