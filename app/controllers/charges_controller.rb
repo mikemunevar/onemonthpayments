@@ -12,9 +12,15 @@ class ChargesController < ApplicationController
     
       charge = Stripe::Charge.create(
         :customer    => customer.id,
+        
+        # Make sure that you use the amount from the database, better to prevent hacking of price. #MDM
         # :amount      => @amount,
-        :amount      => params[:amount],
-        :description => 'Growth Hacking Crash Course',
+        # :amount      => params[:amount],
+        :amount      => product.price_in_cents,
+        
+        # Adjust the description to use the composed(concatenated) description #MDM
+        # :description => 'Growth Hacking Crash Course',
+        :description => product.full_description,
         :currency    => 'usd'
       )
 
