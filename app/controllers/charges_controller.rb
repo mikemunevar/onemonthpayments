@@ -4,25 +4,26 @@
 
 class ChargesController < ApplicationController
     def create
-    
+      product = Product.find_by_sku("GROHACK2")
       customer = Stripe::Customer.create(
-        :email => params[:stripeEmail],
-        :source  => params[:stripeToken]
+        :email   => params[:stripeEmail],
+        :source  => params[:stripeToken],
+        :plan    => "GROHACK2"
       )
     
-      charge = Stripe::Charge.create(
-        :customer    => customer.id,
+#      charge = Stripe::Charge.create(
+#        :customer    => customer.id,
         
         # Make sure that you use the amount from the database, better to prevent hacking of price. #MDM
         # :amount      => @amount,
         # :amount      => params[:amount],
-        :amount      => product.price_in_cents,
+#        :amount      => product.price_in_cents,
         
         # Adjust the description to use the composed(concatenated) description #MDM
         # :description => 'Growth Hacking Crash Course',
-        :description => product.full_description,
-        :currency    => 'usd'
-      )
+#        :description => product.full_description,
+#        :currency    => 'usd'
+#      )
 
     # Create a new purchase #MDM
     purchase = Purchase.create(
@@ -32,8 +33,8 @@ class ChargesController < ApplicationController
       # Use the following variation to make sure that a customer does not hack the amount #MDM
       #amount:       params[:amount],
       amount:       product.price_in_cents,
-      description:  charge.description,
-      currency:     charge.currency,
+      description:  product.full_description,
+      currency:     'usd',
       
       # Make sure that each purchase ID gets a random hex
       customer_id:  customer.id, 
